@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/content/site.config";
 
+// Required for `output: "export"` — the manifest is emitted as a static file.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
