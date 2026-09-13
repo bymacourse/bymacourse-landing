@@ -5,5 +5,5 @@ export const navigation: NavItem[] = [
   { label: "Tentang Kami", href: "#tentang" },
   { label: "HABEL Method", href: "#habel" },
   { label: "Visi & Misi", href: "#visi-misi" },
-  { label: "Daftar", href: "#daftar", cta: true },
+  { label: "Daftar Sekarang", href: "#daftar", cta: true },
 ];

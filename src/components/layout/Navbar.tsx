@@ -22,6 +22,7 @@ export function Navbar() {
   }, []);
 
   const links = navigation.filter((item) => !item.cta);
+  const ctaItem = navigation.find((item) => item.cta);
 
   return (
     <header
@@ -58,7 +59,7 @@ export function Navbar() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button href={registrationHref}>Daftar</Button>
+            <Button href={registrationHref}>{ctaItem?.label}</Button>
           </div>
 
           <button

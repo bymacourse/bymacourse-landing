@@ -128,7 +128,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             className="w-full"
             withArrow
           >
-            Daftar
+            {navigation.find((item) => item.cta)?.label}
           </Button>
         </div>
       </div>

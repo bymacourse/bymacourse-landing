@@ -235,7 +235,7 @@ Clicks: Daftar Sekarang / Hubungi Kami  →  (registrationUrl: TBD · whatsappUr
 | 5 | Learning Activities | `#aktivitas` | — | Make HABEL tangible |
 | 6 | Why BYMA | `#why` | — | Benefit reinforcement / trust |
 | 7 | Visi & Misi | `#visi-misi` | Visi & Misi | Institutional trust |
-| 8 | Final CTA | `#daftar` | Daftar | Conversion |
+| 8 | Final CTA | `#daftar` | Daftar Sekarang | Conversion |
 | 9 | Footer | — | — | Brand, nav, contact placeholders |
 
 ### Why this order (recommendation + rationale)
@@ -252,8 +252,8 @@ Hero → Tentang → Why BYMA → HABEL → Activities → Visi → Misi → CTA
 
 ### Navigation model
 - **Single-page anchor navigation** (recommended for MVP).
-- Items: **Home · Tentang Kami · HABEL Method · Visi & Misi · Daftar**
-- `Daftar` is a **button-styled** item pointing to the primary CTA target (or directly to `registrationUrl` once available).
+- Items: **Home · Tentang Kami · HABEL Method · Visi & Misi · Daftar Sekarang**
+- `Daftar Sekarang` is a **button-styled** item pointing to the primary CTA target (or directly to `registrationUrl` once available).
 
 ---
 
@@ -267,7 +267,7 @@ Global rules for all sections:
 
 | Section | Background tone | Key elements | CTA |
 |---|---|---|---|
-| Navbar | Transparent over hero → solid on scroll | Logo, nav links, Daftar button, mobile menu | Daftar |
+| Navbar | Transparent over hero → solid on scroll | Logo, nav links, Daftar Sekarang button, mobile menu | Daftar Sekarang |
 | Hero | Cream / light with decorative blobs | Eyebrow, H1, supporting copy, 2 CTAs, hero visual | Mulai Belajar / Kenali HABEL |
 | Tentang | Surface / light pink rounded block | Section heading, About paragraphs, supporting quote | — |
 | HABEL | Purple/magenta block (signature moment) | Definition + 4 steps + directional flow | Kenali HABEL |
@@ -457,7 +457,7 @@ Global rules for all sections:
 **Requirements**
 - **Do not invent contact or registration URLs.** All destinations come from the config layer. WhatsApp is provided (`https://wa.me/6281226109432`); `registrationUrl` remains `TBD`.
 - **Decided:** when a destination is `TBD`, the button still renders and remains usable — it smooth-scrolls to the footer contact block, so no dead link is ever shown.
-- CTAs repeated in: Navbar (`Daftar`), Hero (primary), HABEL section (soft), Final CTA (primary + secondary).
+- CTAs repeated in: Navbar (`Daftar Sekarang`), Hero (primary), HABEL section (soft), Final CTA (primary + secondary).
 - Clear visual hierarchy; primary uses solid brand color, secondary uses outline.
 - Buttons vs links: navigation to an external URL = `<a>`; in-page actions = `<button>` or anchor with `href="#id"`.
 
@@ -979,7 +979,7 @@ export const navigation = [
   { label: "Tentang Kami", href: "#tentang" },
   { label: "HABEL Method", href: "#habel" },
   { label: "Visi & Misi", href: "#visi-misi" },
-  { label: "Daftar", href: "#daftar", cta: true },
+  { label: "Daftar Sekarang", href: "#daftar", cta: true },
 ];
 
 // habel.ts
@@ -1159,7 +1159,7 @@ The following are **not available** and must be represented as `TBD`. **Do not f
 - [ ] All unknown data rendered as `TBD` (no fabrication).
 
 **UX / UI**
-- [ ] Single-page anchor nav works (Home, Tentang Kami, HABEL Method, Visi & Misi, Daftar).
+- [ ] Single-page anchor nav works (Home, Tentang Kami, HABEL Method, Visi & Misi, Daftar Sekarang).
 - [ ] Sticky navbar with scroll-state change.
 - [ ] Mobile menu accessible (focus trap, ESC, `aria-expanded`, 44px targets).
 - [ ] HABEL: horizontal on desktop, vertical with arrows on mobile.
