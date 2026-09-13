@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Design tokens — implementation approximations, subject to approval. */
+    --color-primary-dark: #3b1e5a;
+    --color-primary: #6d28d9;
+    --color-accent: #d6336c;
+    /* Darker accent for small text on light backgrounds (WCAG AA 4.5:1+). */
+    --color-accent-strong: #be2a5e;
+    --color-accent-soft: #f7d6e6;
+    --color-lavender: #ede4fb;
+    --color-background: #fbf7f1;
+    --color-surface: #ffffff;
+    --color-text: #1f1633;
+    --color-muted: #6b6480;
+    --color-border: #e7e1ee;
+
+    --gradient-brand: linear-gradient(135deg, #6d28d9 0%, #a21caf 55%, #d6336c 100%);
+    /* Deeper variant used behind white text so every gradient stop keeps
+       WCAG AA contrast (>= 4.5:1) for body copy. */
+    --gradient-brand-deep: linear-gradient(135deg, #5b21b6 0%, #86198f 55%, #b02655 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-ink antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Offset anchor targets so the sticky navbar never covers headings. */
+  section[id],
+  div[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-primary-dark);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal: hidden only when JS is available, so no-JS users
+     always see the content. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .text-gradient-brand {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background-image: var(--gradient-brand);
+  }
+
+  .bg-gradient-brand-deep {
+    background-image: var(--gradient-brand-deep);
+  }
+}
