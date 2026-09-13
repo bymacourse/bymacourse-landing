@@ -39,6 +39,7 @@ export const metadata: Metadata = {
   ...(hasSiteUrl ? { alternates: { canonical: "/" } } : {}),
   openGraph: {
     type: "website",
+    url: "/",
     locale: siteConfig.locale,
     siteName: siteConfig.name,
     title,
